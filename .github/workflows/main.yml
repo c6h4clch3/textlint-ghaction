@@ -8,4 +8,4 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - uses: c6h4clch3/docker-actions-template@master
+      - uses: ./
