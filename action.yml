@@ -1,0 +1,9 @@
+name: "template"
+author: "c6h4clch3"
+description: |
+  Template for GitHub Action with Docker
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - "README.md"
