@@ -8,6 +8,15 @@ inputs:
       Working directory of textlint
     required: false
     default: ./*.txt
+  configFile:
+    description: |
+      Locates textlintrc.* file
+    required: false
+    default: ""
+outputs:
+  textlint_result:
+    description: |
+      the result message of textlint
 runs:
   using: "docker"
   image: "Dockerfile"

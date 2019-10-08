@@ -9,3 +9,5 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: ./
+        id: textlint
+      - run: "echo ${{ steps.textlint.outputs.textlint_result }}"
