@@ -7,9 +7,7 @@ inputs:
     description: |
       Working directory of textlint
     required: false
-    default: ./*
+    default: ./*.txt
 runs:
   using: "docker"
   image: "Dockerfile"
-  args:
-    - "README.md"
