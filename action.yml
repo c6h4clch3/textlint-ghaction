@@ -13,10 +13,22 @@ inputs:
       Locates textlintrc.* file
     required: false
     default: ""
-outputs:
-  textlint_result:
+  silent:
     description: |
-      the result message of textlint
+      If true, set the exit code always 0 even though on error,
+      and the result logs and exit code are passed to outputs.
+    required: false
+    default: "false"
+outputs:
+  result_logs:
+    description: |
+      the result logs of textlint,
+      set when INPUTS_SILENT is true.
+  exit_code:
+    description: |
+      the exit code of textlint,
+      set when INPUTS_SILENT is true.
+
 runs:
   using: "docker"
   image: "Dockerfile"

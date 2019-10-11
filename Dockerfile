@@ -1,6 +1,6 @@
 FROM alpine:3.10
 
-RUN apk update && apk add npm
+RUN apk --update add npm
 RUN set -x && \
   npm install -g textlint@11.3.1 \
   textlint-rule-preset-ja-technical-writing@3.1.3 \
