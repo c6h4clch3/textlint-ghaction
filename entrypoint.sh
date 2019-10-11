@@ -1,7 +1,7 @@
 #!/bin/sh
 
 lint() {
-    if [ $INPUT_CONFIGFILE -eq "" ]; then
+    if [ $INPUT_CONFIGFILE -ne "" ]; then
         configFile="--config $INPUT_CONFIGFILE"
     fi
     textlint --plugin review --preset preset-ja-technical-writing ${configFile} $INPUT_WORKDIR
