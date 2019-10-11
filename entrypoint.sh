@@ -13,5 +13,5 @@ if [ $INPUT_SILENT != "true" ]; then
 fi
 
 lint > res.log || EXIT_CODE=$?
-echo ::set-output name=result_logs:: $(cat res.log)
-echo ::set-output name=exit_code:: ${EXIT_CODE}
+echo ::set-output name=result_logs::$(cat res.log)
+echo ::set-output name=exit_code::${EXIT_CODE}
