@@ -7,10 +7,9 @@ lint() {
     return textlint --plugin review --preset preset-ja-technical-writing \
     ${configFile} $INPUT_WORKDIR
 }
-if ![ $INPUT_SILENT -eq "true" ]; then
+if ![ $INPUT_SILENT -ne "true" ]; then
     return lint
 fi
-
 
 lint > res.log || EXIT_CODE=$?
 echo ::set-output name=textlint_result::$(cat res.log)
