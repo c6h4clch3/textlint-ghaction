@@ -4,7 +4,7 @@ lint() {
     if [ $INPUT_CONFIG_FILE != "" ]; then
         configFile="--config $INPUT_CONFIG_FILE"
     fi
-    textlint --plugin review --preset preset-ja-technical-writing ${configFile} $INPUT_WORKDIR
+    textlint --plugin review --preset preset-ja-technical-writing ${configFile} $INPUT_TARGET
     return $?
 }
 if [ $INPUT_SILENT != "true" ]; then
