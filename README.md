@@ -22,20 +22,20 @@ The GitHub Action to use textlint.
 
 Target files of lint.
 
-default: `./+.txt`
+default: `"./*.txt"`
 
 ### config_file
 
 Locates textlintrc.\* file.
 
-default: ``
+default: `""`
 
 ### silent
 
 If `"true"`, set the exit code of step always 0 even though on error,
 and the result logs and exit code of lint are passed to outputs.
 
-default: "false"
+default: `"false"`
 
 #### Why is the exit code needed to set always 0?
 
