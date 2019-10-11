@@ -10,4 +10,6 @@ jobs:
       - uses: actions/checkout@v1
       - uses: ./
         id: textlint
+        with:
+          silent: "true"
       - run: "echo '${{ steps.textlint.outputs.result_logs }}'"
