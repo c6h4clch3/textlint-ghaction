@@ -4,11 +4,12 @@ lint() {
     if [ $INPUT_CONFIGFILE -eq "" ]; then
         configFile="--config $INPUT_CONFIGFILE"
     fi
-    return $(textlint --plugin review --preset preset-ja-technical-writing \
-    ${configFile} $INPUT_WORKDIR)
+    textlint --plugin review --preset preset-ja-technical-writing ${configFile} $INPUT_WORKDIR
+    return $?
 }
 if [ $INPUT_SILENT -ne "true" ]; then
-    return $(lint)
+    lint
+    return $?
 fi
 
 lint > res.log || EXIT_CODE=$?
