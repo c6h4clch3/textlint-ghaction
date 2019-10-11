@@ -1,4 +1,4 @@
-#!/bin/sh -l
+#!/bin/sh
 
 lint() {
     if [ $INPUT_CONFIGFILE -eq "" ]; then
@@ -9,7 +9,7 @@ lint() {
 }
 if [ $INPUT_SILENT -ne "true" ]; then
     lint
-    return $?
+    exit $?
 fi
 
 lint > res.log || EXIT_CODE=$?
