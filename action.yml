@@ -3,12 +3,12 @@ author: "c6h4clch3"
 description: |
   textlint excutor on GitHub Actions
 inputs:
-  workdir:
+  target:
     description: |
-      Working directory of textlint
+      Target files to lint
     required: false
     default: ./*.txt
-  configFile:
+  config_file:
     description: |
       Locates textlintrc.* file
     required: false
