@@ -2,6 +2,8 @@
 
 The GitHub Action to use textlint.
 
+**Note:** This action uses Docker, runs on only Linux.
+
 ## Plugins
 
 ### plugins
@@ -30,30 +32,11 @@ Locates textlintrc.\* file.
 
 default: `""`
 
-### silent
-
-If `"true"`, set the exit code of step always 0 even though on error,
-and the result logs and exit code of lint are passed to outputs.
-
-default: `"false"`
-
-#### Why is the exit code needed to set always 0?
-
-To continue job to latter steps(ex. reviewdog).
-When a step returns the exit code is not zero,
-subsequential steps are forced to stop.
-
 ## OUTPUT
 
 ### result_logs
 
-the result logs of textlint,
-set when INPUTS_SILENT is true.
-
-### exit_code
-
-the exit code of textlint,
-set when INPUTS_SILENT is true.
+The result logs of textlint
 
 ## FAQ
 
@@ -70,3 +53,7 @@ Fork this repo and use it own.
 
 Fork this repo and use it own.
 I make this repo for my purpose, not your purpose.
+
+### How do I use this action with other action? This action stops the workflow.
+
+Use [jobs.<job_id>.steps.continue-on-error](https://help.github.com/ja/articles/workflow-syntax-for-github-actions#jobsjob_idstepscontinue-on-error).
