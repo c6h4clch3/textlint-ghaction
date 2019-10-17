@@ -9,12 +9,12 @@ lint() {
 }
 
 if [ "$INPUT_USE_REVIEWDOG" != "" ] && [ "$INPUT_GITHUB_TOKEN" != "" ]; then
-    lint --format checkstyle > res.log
+    lint "--format checkstyle" > res.log
     cat res.log
     cat res.log | \
-    REVIEWDOG_GITHUB_API_TOKEN=$GITHUB_TOKEN \
+    REVIEWDOG_GITHUB_API_TOKEN=$INPUT_GITHUB_TOKEN \
     bin/reviewdog -f checkstyle --reporter=github-pr-check \
-    -diff='git --no-pager diff origin/master'
+    -diff='git --no-pager diff origin/master' \
     -name=textlint
 fi
 
