@@ -11,4 +11,3 @@ jobs:
       - uses: ./
         id: textlint
         continue-on-error: true
-      - run: "echo '${{ steps.textlint.outputs.result_logs }}'"

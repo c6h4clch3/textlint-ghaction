@@ -24,10 +24,6 @@ inputs:
       GitHub API tokens, used to notify the result with reviewdog.
     required: false
     default: ""
-outputs:
-  result_logs:
-    description: |
-      the result logs of textlint.
 
 runs:
   using: "docker"
