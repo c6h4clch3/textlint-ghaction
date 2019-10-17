@@ -8,8 +8,9 @@ lint() {
     return $?
 }
 
-if [ "$INPUT_USE_REVIEWDOG" != "" ] && [ "$GITHUB_TOKEN" != "" ]; then
+if [ "$INPUT_USE_REVIEWDOG" != "" ] && [ "$INPUT_GITHUB_TOKEN" != "" ]; then
     lint --format checkstyle > res.log
+    cat res.log
     cat res.log | \
     REVIEWDOG_GITHUB_API_TOKEN=$GITHUB_TOKEN \
     bin/reviewdog -f checkstyle --reporter=github-pr-check \
