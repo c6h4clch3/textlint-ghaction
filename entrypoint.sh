@@ -11,4 +11,4 @@ lint() {
 lint > res.log || EXIT_CODE=$?
 cat res.log
 echo ::set-output name=result_logs::$(cat res.log)
-return EXIT_CODE
+return ${EXIT_CODE}
