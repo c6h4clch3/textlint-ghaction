@@ -13,7 +13,7 @@ if [ "$INPUT_USE_REVIEWDOG" != "" ] && [ "$INPUT_GITHUB_TOKEN" != "" ]; then
     cat res.log
     cat res.log | \
     REVIEWDOG_GITHUB_API_TOKEN=$INPUT_GITHUB_TOKEN \
-    bin/reviewdog -f checkstyle --reporter=github-pr-check \
+    reviewdog -f checkstyle --reporter=github-pr-check \
     -diff='git --no-pager diff origin/master' \
     -name=textlint
 fi
