@@ -13,6 +13,17 @@ inputs:
       Locates textlintrc.* file
     required: false
     default: ""
+  use_reviewdog:
+    description: |
+      if "true", the result will be notified with reviewdog.
+      It is Also needed input.github_token set to use.
+    required: false
+    default: ""
+  github_token:
+    description: |
+      GitHub API tokens, used to notify the result with reviewdog.
+    required: false
+    default: ""
 outputs:
   result_logs:
     description: |

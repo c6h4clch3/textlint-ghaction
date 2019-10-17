@@ -4,11 +4,17 @@ lint() {
     if [ $INPUT_CONFIG_FILE != "" ]; then
         configFile="--config $INPUT_CONFIG_FILE"
     fi
-    textlint --plugin review --preset preset-ja-technical-writing ${configFile} $INPUT_TARGET
+    textlint --plugin review --preset preset-ja-technical-writing ${configFile} $1 $INPUT_TARGET
     return $?
 }
 
-lint > res.log || EXIT_CODE=$?
-cat res.log
-echo ::set-output name=result_logs::$(cat res.log)
-return ${EXIT_CODE}
+if [ $INPUT_USE_REVIEWDOG != "" ] && [ $GITHUB_TOKEN != "" ]; then
+    lint --format checkstyle > res.log
+    cat res.log | \
+    REVIEWDOG_GITHUB_API_TOKEN=$GITHUB_TOKEN \
+    bin/reviewdog -f checkstyle --reporter=github-pr-check \
+    -diff='git --no-pager diff origin/master'
+    -name=textlint
+fi
+
+lint
