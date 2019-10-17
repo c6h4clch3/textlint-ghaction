@@ -32,11 +32,18 @@ Locates textlintrc.\* file.
 
 default: `""`
 
-## OUTPUT
+### use_reviewdog
 
-### result_logs
+if `"true"`, the result will be notified with reviewdog.
+It is Also needed input.github_token set to use.
 
-The result logs of textlint
+default: `""`
+
+### github_token
+
+GitHub API tokens, used to notify the result with reviewdog.
+
+default: `""`
 
 ## FAQ
 
